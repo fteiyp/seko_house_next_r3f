@@ -49,13 +49,13 @@ extend({ WaveShaderMaterial });
 
 const Wave = () => {
   const ref = useRef();
-  useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime()));
+  useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime() / 10));
   const [image] = useLoader(THREE.TextureLoader, [
-    "https://i1.sndcdn.com/avatars-XRfKxiEicTDzUmp3-7MLvhw-t500x500.jpg",
+    "https://i1.sndcdn.com/artworks-4uBYuyQ8ZdjgnBdH-ly9xgw-t500x500.jpg",
   ]);
   return (
     <mesh>
-      <planeBufferGeometry args={[0.4, 0.6, 16, 16]} />
+      <planeBufferGeometry args={[0.9, 0.9, 16, 16]} />
       <waveShaderMaterial uColor={"hotpink"} ref={ref} uTexture={image} />
     </mesh>
   );

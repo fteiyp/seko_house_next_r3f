@@ -10,6 +10,15 @@ html {
   background: #000;
 }
 
+/* ADD font stroke */
+
+@supports (-webkit-text-stroke: 1px black) {
+  .text-outline {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: black;
+  }
+}
+
 /* ADD FONT IMPORTS AFTER ADDING FONT WOFFS */
 
 @font-face {
@@ -31,4 +40,51 @@ html {
   font-style: bold;
   font-weight: 600;
   src: local(""), url("/fonts/NeueMontreal-Bold.otf") format("woff");
+}
+
+@font-face {
+  font-family: "Chromate";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/fonts/Chromate-Regular.otf") format("woff");
+}
+
+/* Cursor styling */
+
+html {
+  /* cursor: none; */
+}
+
+.cursor {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #fefefe;
+  border-radius: 100%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 150ms ease;
+  transition-property: background-color, opacity, transform, mix-blend-mode;
+  z-index: 9999;
+  mix-blend-mode: exclusion;
+}
+
+.cursor--hidden {
+  opacity: 0;
+}
+
+.cursor--link-hovered {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #fefefe;
+}
+
+.cursor--video-hovered {
+  transform: translate(-50%, -50%) scale(0.2);
+  background-color: #fefefe;
+  border: none;
+}
+
+.cursor--clicked {
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: #fefefe;
 }

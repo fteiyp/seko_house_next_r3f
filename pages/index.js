@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import HomeAnimation from "../components/HomeAnimation";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -11,12 +12,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Home</h1>
-
-        <div className="w-96 h-96">
-          <HomeAnimation />
-        </div>
+      <main className="overflow-hidden">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            transition: {
+              delay: 0.5,
+            },
+          }}
+        >
+          <div className="w-full h-[80vh] relative ">
+            <div className="absolute left-20 top-96 z-10">
+              <h2 className="text-6xl m-4">Let Me Down To Earth</h2>
+              <span className="outline stroke-1 p-2 m-4">Listen Now</span>
+            </div>
+            <div className="w-[100%] h-[75vh] absolute ">
+              <HomeAnimation />
+            </div>
+          </div>
+        </motion.div>
       </main>
 
       <footer></footer>

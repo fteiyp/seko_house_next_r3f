@@ -7,17 +7,26 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-around items-center h-16">
+    <div className="flex justify-around items-center h-36">
       <div className="flex uppercase">
-        <Link href="/music">Music</Link>
-        <Link href="/about">About</Link>
-        <Link href="/shows">Shows</Link>
+        <span className="mr-4">
+          <Link href="/music">Music</Link>
+        </span>
+        <span className="mr-4">
+          <Link href="/about">About</Link>
+        </span>
+        <span className="mr-4">
+          <Link href="/shows">Shows</Link>
+        </span>
       </div>
       <Link href="/">
-        <span className="text-3xl">Seko House</span>
+        <span className="text-8xl font-['Chromate'] text-outline">
+          Seko House
+        </span>
       </Link>
       <div className="flex">
         <a href="https://open.spotify.com/artist/1uzEmG1cUynJOjJi0LTNvf?si=oAbhsZjlSWyIlyLOLGQEbw&nd=1">
