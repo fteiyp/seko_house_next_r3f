@@ -1,22 +1,34 @@
 import React from "react";
 import Head from "next/head";
-import ReactPlayer from "react-player";
 import { motion } from "framer-motion";
 
-const demos = [
-  "https://soundcloud.com/sekohouse/tripwirebysekohouse",
-  "https://soundcloud.com/sekohouse/full-circle-ft-salem-prod-seko",
-  "https://soundcloud.com/sekohouse/spl-grieve-prod-seko-house",
-  "https://soundcloud.com/sekohouse/goyardlost",
-  "https://soundcloud.com/sekohouse/fornowmusic-prod-seko",
+const links = [
+  "https://open.spotify.com/embed/track/7pXhNw9cjaOYgBE7vq8LLO?utm_source=generator&theme=0",
+  "https://open.spotify.com/embed/track/0BPIgqAR8bw8Ott5ic8an3?utm_source=generator",
+  "https://open.spotify.com/embed/track/42z0VLNliUVT5ZPQiyMWYa?utm_source=generator&theme=0",
 ];
+
+function SpotifyPlayer({ link }) {
+  return (
+    <iframe
+      className="rounded-l"
+      src={link}
+      width="100%"
+      height="100%"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  );
+}
 
 function WeeklyDemos() {
   return (
-    <div className="w-full px-32 flex flex-col items-center ">
-      {demos.map((demo) => (
-        <div key={demo} className="mb-4 mx-16 bg-blue-200 h-36 w-full">
-          <ReactPlayer height="100%" width="100%" url={demo} />
+    <div className="w-full px-8 sm:px-48 flex flex-col items-center mt-6">
+      {links.map((link) => (
+        <div key={link} className="mb-4 h-60 w-full">
+          <SpotifyPlayer link={link} />
         </div>
       ))}
     </div>
@@ -36,16 +48,6 @@ const Music = () => {
       </Head>
 
       <main>
-        <iframe
-          className="rounded-xl"
-          src="https://open.spotify.com/embed/track/7pXhNw9cjaOYgBE7vq8LLO?utm_source=generator&theme=0"
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
         <WeeklyDemos />
       </main>
 
@@ -53,5 +55,11 @@ const Music = () => {
     </motion.div>
   );
 };
+
+export async function getServerSideProps(context) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
 
 export default Music;
