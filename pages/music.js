@@ -13,10 +13,10 @@ const demos = [
 
 function WeeklyDemos() {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full px-32 flex flex-col items-center ">
       {demos.map((demo) => (
-        <div key={demo} className="m-4 bg-yellow-200">
-          <ReactPlayer height="100%" url={demo} />
+        <div key={demo} className="mb-4 mx-16 bg-blue-200 h-36 w-full">
+          <ReactPlayer height="100%" width="100%" url={demo} />
         </div>
       ))}
     </div>
@@ -36,6 +36,16 @@ const Music = () => {
       </Head>
 
       <main>
+        <iframe
+          className="rounded-xl"
+          src="https://open.spotify.com/embed/track/7pXhNw9cjaOYgBE7vq8LLO?utm_source=generator&theme=0"
+          width="100%"
+          height="352"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
         <WeeklyDemos />
       </main>
 

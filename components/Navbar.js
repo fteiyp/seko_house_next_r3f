@@ -4,6 +4,7 @@ import {
   faSpotify,
   faSoundcloud,
   faYoutube,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
@@ -24,11 +25,17 @@ const Navbar = () => {
         </span>
       </div>
       <Link href="/">
-        <span className="text-8xl font-['Chromate'] text-outline">
+        <span className="text-8xl font-['Chromate'] text-outline cursor-pointer">
           Seko House
         </span>
       </Link>
       <div className="flex">
+        <a href="https://www.instagram.com/seko_house/?hl=en">
+          <FontAwesomeIcon
+            icon={faInstagram}
+            className="h-7 mr-4 sm:h-8 sm:mr-4 transition hover:text-blue-200 duration-200"
+          />
+        </a>
         <a href="https://open.spotify.com/artist/1uzEmG1cUynJOjJi0LTNvf?si=oAbhsZjlSWyIlyLOLGQEbw&nd=1">
           <FontAwesomeIcon
             icon={faSpotify}
