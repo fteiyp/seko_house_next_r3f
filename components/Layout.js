@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import Navbar from "./Navbar";
-import Cursor from "./Cursor";
+import Footer from "./Footer";
+// import Cursor from "./Cursor";
 
 const Layout = ({ children, router }) => {
   // Stuff for cursor
@@ -18,7 +19,8 @@ const Layout = ({ children, router }) => {
       {/* <Cursor key={router.route} xRef={xRef} yRef={yRef} /> */}
       <div className="bg-black text-white">
         <Navbar />
-        {children}
+        <div className="min-h-screen">{children}</div>
+        <Footer />
       </div>
     </div>
   );

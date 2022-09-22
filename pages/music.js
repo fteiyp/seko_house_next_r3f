@@ -1,6 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
+import SpotifyWebApi from "spotify-web-api-node";
 
 const links = [
   "https://open.spotify.com/embed/track/7pXhNw9cjaOYgBE7vq8LLO?utm_source=generator&theme=0",
@@ -8,11 +10,11 @@ const links = [
   "https://open.spotify.com/embed/track/42z0VLNliUVT5ZPQiyMWYa?utm_source=generator&theme=0",
 ];
 
-function SpotifyPlayer({ link }) {
+function SpotifyPlayer({ track }) {
   return (
     <iframe
       className="rounded-l"
-      src={link}
+      src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0`}
       width="100%"
       height="100%"
       frameBorder="0"
@@ -23,19 +25,20 @@ function SpotifyPlayer({ link }) {
   );
 }
 
-function WeeklyDemos() {
+function WeeklyDemos({ tracks }) {
   return (
     <div className="w-full px-8 sm:px-48 flex flex-col items-center mt-6">
-      {links.map((link) => (
-        <div key={link} className="mb-4 h-60 w-full">
-          <SpotifyPlayer link={link} />
+      {tracks.map((track) => (
+        <div key={track.id} className="mb-4 h-60 w-full">
+          <SpotifyPlayer track={track} />
         </div>
       ))}
     </div>
   );
 }
 
-const Music = () => {
+const Music = ({ tracks }) => {
+  console.log("data >>", tracks);
   return (
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
@@ -48,17 +51,29 @@ const Music = () => {
       </Head>
 
       <main>
-        <WeeklyDemos />
+        <WeeklyDemos tracks={tracks} />
       </main>
-
-      <footer></footer>
     </motion.div>
   );
 };
 
 export async function getServerSideProps(context) {
+  const spotifyApi = new SpotifyWebApi({
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  });
+
+  const data = await spotifyApi.clientCredentialsGrant();
+
+  spotifyApi.setAccessToken(data.body["access_token"]);
+
+  const trackData = await spotifyApi.getArtistTopTracks(
+    "1uzEmG1cUynJOjJi0LTNvf",
+    "US"
+  );
+
   return {
-    props: {}, // will be passed to the page component as props
+    props: { tracks: trackData.body.tracks }, // will be passed to the page component as props
   };
 }
 

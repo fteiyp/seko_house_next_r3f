@@ -49,7 +49,7 @@ extend({ WaveShaderMaterial });
 
 const Wave = () => {
   const ref = useRef();
-  useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime() / 10));
+  useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime() / 5));
   const [image] = useLoader(THREE.TextureLoader, [
     "https://i1.sndcdn.com/artworks-4uBYuyQ8ZdjgnBdH-ly9xgw-t500x500.jpg",
   ]);

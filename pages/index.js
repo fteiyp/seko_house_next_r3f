@@ -24,19 +24,17 @@ export default function Home() {
             },
           }}
         >
-          <div className="w-full h-[80vh] relative ">
+          <div className="w-full h-[80vh] relative">
             <div className="absolute left-20 top-96 z-10">
               <h2 className="text-6xl m-4">Let Me Down To Earth</h2>
               <span className="outline stroke-1 p-2 m-4">Listen Now</span>
             </div>
-            <div className="w-[100%] h-[75vh] absolute ">
+            <div className="w-[100%] h-[75vh] absolute">
               <HomeAnimation />
             </div>
           </div>
         </motion.div>
       </main>
-
-      <footer></footer>
     </div>
   );
 }
