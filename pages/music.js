@@ -1,14 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import Footer from "../components/Footer";
 import SpotifyWebApi from "spotify-web-api-node";
-
-const links = [
-  "https://open.spotify.com/embed/track/7pXhNw9cjaOYgBE7vq8LLO?utm_source=generator&theme=0",
-  "https://open.spotify.com/embed/track/0BPIgqAR8bw8Ott5ic8an3?utm_source=generator",
-  "https://open.spotify.com/embed/track/42z0VLNliUVT5ZPQiyMWYa?utm_source=generator&theme=0",
-];
 
 function SpotifyPlayer({ track }) {
   return (

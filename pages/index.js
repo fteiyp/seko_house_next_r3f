@@ -26,8 +26,12 @@ export default function Home() {
         >
           <div className="w-full h-[80vh] relative">
             <div className="absolute left-20 top-96 z-10">
-              <h2 className="text-6xl m-4">Let Me Down To Earth</h2>
-              <span className="outline stroke-1 p-2 m-4">Listen Now</span>
+              <h2 className="text-6xl mb-8">Let Me Down To Earth</h2>
+              <a href="https://open.spotify.com/artist/1uzEmG1cUynJOjJi0LTNvf?si=oAbhsZjlSWyIlyLOLGQEbw&nd=1">
+                <span className="text-4xl outline stroke-1 p-4 italic hover:bg-[#ffffff] hover:text-black hover:rounded-2xl transition-all duration-300 ">
+                  Listen Now
+                </span>
+              </a>
             </div>
             <div className="w-[100%] h-[75vh] absolute">
               <HomeAnimation />
