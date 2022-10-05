@@ -28,7 +28,7 @@ export default function Home() {
             <div className="absolute left-20 top-96 z-10">
               <h2 className="text-6xl mb-8">Let Me Down To Earth</h2>
               <a href="https://open.spotify.com/artist/1uzEmG1cUynJOjJi0LTNvf?si=oAbhsZjlSWyIlyLOLGQEbw&nd=1">
-                <span className="text-4xl outline stroke-1 p-4 italic hover:bg-[#ffffff] hover:text-black hover:rounded-2xl transition-all duration-300 ">
+                <span className="text-4xl outline stroke-1 p-4 italic hover:bg-white hover:text-black hover:rounded-2xl transition-all duration-300 ">
                   Listen Now
                 </span>
               </a>
